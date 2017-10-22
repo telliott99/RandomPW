@@ -10,6 +10,9 @@
 		75A2F0211F9CD61E002C0C2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F0201F9CD61E002C0C2C /* AppDelegate.swift */; };
 		75A2F0231F9CD61E002C0C2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2F0221F9CD61E002C0C2C /* Assets.xcassets */; };
 		75A2F0261F9CD61E002C0C2C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A2F0241F9CD61E002C0C2C /* MainMenu.xib */; };
+		75A2F0301F9CD64F002C0C2C /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F02E1F9CD64F002C0C2C /* MainWindowController.swift */; };
+		75A2F0311F9CD64F002C0C2C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A2F02F1F9CD64F002C0C2C /* MainWindowController.xib */; };
+		75A2F0351F9CEA8C002C0C2C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F0341F9CEA8C002C0C2C /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		75A2F0251F9CD61E002C0C2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		75A2F0271F9CD61E002C0C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A2F0281F9CD61E002C0C2C /* RandomPW.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandomPW.entitlements; sourceTree = "<group>"; };
+		75A2F02E1F9CD64F002C0C2C /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		75A2F02F1F9CD64F002C0C2C /* MainWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		75A2F0341F9CEA8C002C0C2C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 				75A2F0241F9CD61E002C0C2C /* MainMenu.xib */,
 				75A2F0271F9CD61E002C0C2C /* Info.plist */,
 				75A2F0281F9CD61E002C0C2C /* RandomPW.entitlements */,
+				75A2F02E1F9CD64F002C0C2C /* MainWindowController.swift */,
+				75A2F02F1F9CD64F002C0C2C /* MainWindowController.xib */,
+				75A2F0341F9CEA8C002C0C2C /* Helper.swift */,
 			);
 			path = RandomPW;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A2F0231F9CD61E002C0C2C /* Assets.xcassets in Resources */,
+				75A2F0311F9CD64F002C0C2C /* MainWindowController.xib in Resources */,
 				75A2F0261F9CD61E002C0C2C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A2F0301F9CD64F002C0C2C /* MainWindowController.swift in Sources */,
 				75A2F0211F9CD61E002C0C2C /* AppDelegate.swift in Sources */,
+				75A2F0351F9CEA8C002C0C2C /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
