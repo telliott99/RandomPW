@@ -24,8 +24,10 @@ func helperDoIt() -> String {
     
     let useDigits: Bool = (mwc.digitsCheckbox.state == NSControl.StateValue.on)
     let useUC: Bool = (mwc.ucCheckbox.state == NSControl.StateValue.on)
-    
-    var s = "abcdefghijklmnopqrstuvwxyz"
+    let useLC: Bool = (mwc.lcCheckbox.state == NSControl.StateValue.on)
+
+    var s = ""
+    if useLC     { s = "abcdefghijklmnopqrstuvwxyz" }
     if useUC     { s += "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
     if useDigits { s += "0123456789" }
     
