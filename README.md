@@ -2,13 +2,9 @@ This repository contains a simple app written in Swift4 using Xcode.
 
 #### RandomPW
 
-RandomPW uses a cryptographically secure source of random bytes 
+RandomPW uses a cryptographically secure source of random bytes `SecRandomCopyBytes` [ref](https://developer.apple.com/documentation/security/randomization_services) to generate a password from a collection of characters which by default is the lowercase letters
 
-```
-SecRandomCopyBytes
-```
-
-to generate a password from a collection of characters which by default is the lowercase letters but may also include digits and uppercase letters.
+The set may be modified to include include digits and uppercase letters, or even a custom collection.
 
 ![](screenshot.png)
 

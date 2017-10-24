@@ -10,18 +10,33 @@ func getRandomBytes(count: Int) -> [UInt8] {
     return buffer
 }
 
+func helperGetHex(_ n: Int = 16) -> String {
+    let sep: String = ""
+    let L: [UInt8] = getRandomBytes(count: n)
+    return L.map{ String(format: "%02x", $0) }.joined(separator: sep)
+}
+
 func helperDoIt() -> String {
+    let n: Int = mwc.lengthTextField.integerValue
+    
+    let hex: Bool = (mwc.hexCheckbox.state == NSControl.StateValue.on)
+    if hex { return helperGetHex(n/2) }
+    
     let useDigits: Bool = (mwc.digitsCheckbox.state == NSControl.StateValue.on)
     let useUC: Bool = (mwc.ucCheckbox.state == NSControl.StateValue.on)
     
     var s = "abcdefghijklmnopqrstuvwxyz"
     if useUC     { s += "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
     if useDigits { s += "0123456789" }
+    
+    let t = mwc.characterTextField.stringValue
+    Swift.print("t: \(t)")
+    if t.count != 0 { s = t }
+    
     let i = s.startIndex
     let m = UInt8(s.count)
-    
     var L: [Character] = []
-    let n: Int = mwc.lengthTextField.integerValue
+    
     for b in getRandomBytes(count: n) {
         let j = s.index(i, offsetBy: Int(b % m))
         L.append(s[j])
