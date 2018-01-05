@@ -10,6 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.close()  // default app window
         let mwc = MainWindowController(windowNibName: NSNib.Name(rawValue: "MainWindowController"))
         mwc.showWindow(self)
+        // mwc.button_pushed(sender: self)  // display pw on launch
         self.mainWindowController = mwc
     }
 }

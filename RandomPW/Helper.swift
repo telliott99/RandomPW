@@ -10,27 +10,38 @@ func getRandomBytes(count: Int) -> [UInt8] {
     return buffer
 }
 
-func helperGetHex(_ n: Int = 16) -> String {
+func helperGetHex() -> String {
+    let n: Int = mwc.lengthTextField.integerValue
     let sep: String = ""
+    
     let L: [UInt8] = getRandomBytes(count: n)
     return L.map{ String(format: "%02x", $0) }.joined(separator: sep)
 }
 
 func helperDoIt() -> String {
+    mwc.getCheckboxesFromUI()
+    Swift.print("dict:  \(mwc.checkboxDict)")
+    
     let n: Int = mwc.lengthTextField.integerValue
     
-    let hex: Bool = (mwc.hexCheckbox.state == NSControl.StateValue.on)
-    if hex { return helperGetHex(n/2) }
+    let hex: Bool = mwc.checkboxDict["hex"]!
+    if hex { return helperGetHex() }
     
-    let useDigits: Bool = (mwc.digitsCheckbox.state == NSControl.StateValue.on)
-    let useUC: Bool = (mwc.ucCheckbox.state == NSControl.StateValue.on)
-    let useLC: Bool = (mwc.lcCheckbox.state == NSControl.StateValue.on)
-
+    let useDigits: Bool = mwc.checkboxDict["dg"]!
+    let useUC: Bool = mwc.checkboxDict["uc"]!
+    let useLC: Bool = mwc.checkboxDict["lc"]!
+    
     var s = ""
-    if useLC     { s = "abcdefghijklmnopqrstuvwxyz" }
-    if useUC     { s += "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
+    if useLC  { s = "abcdefghijklmnopqrstuvwxyz" }
+    if useUC  { s += "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
     if useDigits { s += "0123456789" }
     
+    let b58: Bool = mwc.checkboxDict["b58"]!
+    if b58 {
+       s =  "abcdefghijkmnopqrstuvwxyz"
+       s += "ABCDEFGHJKLMNPQRSTUVWXYZ123456789"
+    }
+
     let t = mwc.characterTextField.stringValue
     Swift.print("t: \(t)")
     if t.count != 0 { s = t }
@@ -40,6 +51,11 @@ func helperDoIt() -> String {
     var L: [Character] = []
     
     for b in getRandomBytes(count: n) {
+        // got m == 0 here once
+        if m == 0 {
+            Swift.print("got bad length for s")
+            return ""
+        }
         let j = s.index(i, offsetBy: Int(b % m))
         L.append(s[j])
     }
